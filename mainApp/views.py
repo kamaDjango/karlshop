@@ -11,7 +11,7 @@ from django.core.mail import send_mail
 
 from karlshop.settings import RAZORPAY_API_KEY,RAZORPAY_API_SECRET_KEY
 import razorpay
-
+ 
 from .models import *
 
 

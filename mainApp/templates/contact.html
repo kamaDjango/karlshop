@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+{% block title %}
+<title>KarlShop | Contact Us Page</title>
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex bg-secondary text-light p-3 mb-1">
+                <div><i class="fa fa-phone" style="font-size: 25px;"></i></div>
+                <div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:9873848046" class="text-light">9873848046</a>
+                </div>
+            </div>
+            <div class="d-flex bg-secondary text-light p-3 mb-1">
+                <div><i class="fa fa-envelope" style="font-size: 25px;"></i></div>
+                <div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:vishankchauahn@gmail.com"
+                        class="text-light">vishankchauahn@gmail.com</a>
+                </div>
+            </div>
+            <div class="d-flex bg-secondary text-light p-3 mb-1">
+                <div><i class="fa fa-home" style="font-size: 25px;"></i></div>
+                <div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A-43, Sector 16, Noida, UP
+                </div>
+            </div>
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="100%" height="440px" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=A-43%20sector%2016%20nOida&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br></style>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5 class="bg-secondary text-light text-center p-3">Contact US</h5>
+            {% if messages %}
+            {% for m in messages%}
+            <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                {{m}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <form action="/contact/" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label>Name<span class="text-danger">*</span></spabn></label>
+                    <input type="text" name="name" required placeholder="Enter Full Name : " class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>Email<span class="text-danger">*</span></spabn></label>
+                    <input type="email" name="email" required placeholder="Enter Email Address : " class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>Phone<span class="text-danger">*</span></spabn></label>
+                    <input type="text" name="phone" required placeholder="Enter Phone Number : " class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>Subject<span class="text-danger">*</span></spabn></label>
+                    <input type="text" name="subject" required placeholder="Enter Subject : " class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>Message<span class="text-danger">*</span></spabn></label>
+                    <textarea name="message" required rows="5" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-secondary w-100 text-light">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
